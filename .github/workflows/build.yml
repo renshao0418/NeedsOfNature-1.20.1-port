@@ -1,0 +1,30 @@
+name: Build Mods
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Build with Gradle
+        run: |
+          chmod +x gradlew
+          ./gradlew clean build --no-daemon --console=plain
+
+      - name: Upload mod JARs
+        uses: actions/upload-artifact@v4
+        with:
+          name: mod-jars-1.20.1
+          path: |
+            animationdirector/build/libs/*.jar
+            needsofnature/build/libs/*.jar
