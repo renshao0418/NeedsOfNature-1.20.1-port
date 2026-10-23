@@ -212,6 +212,7 @@ final class NonModMenuDebugScreens {
 
         public void render(DrawContext context, int mouseX, int mouseY, float delta) {
             this.updateApplyButton();
+            this.renderBackground(context);
             super.render(context, mouseX, mouseY, delta);
             context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
             this.drawLiquidGainHeader(context);
@@ -560,6 +561,7 @@ final class NonModMenuDebugScreens {
             }
 
             public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+                this.renderBackground(context);
                 super.render(context, mouseX, mouseY, delta);
                 context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, this.height / 2 - 20, -1);
                 context.drawCenteredTextWithShadow(this.textRenderer, (Text)Text.translatable((String)"config.needsofnature.liquid_gain_reset_body"), this.width / 2, this.height / 2 - 4, -4144960);
@@ -646,6 +648,7 @@ final class NonModMenuDebugScreens {
 
         public void render(DrawContext context, int mouseX, int mouseY, float delta) {
             this.updateApplyButton();
+            this.renderBackground(context);
             super.render(context, mouseX, mouseY, delta);
             context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
             this.drawHeader(context);
@@ -1122,6 +1125,7 @@ final class NonModMenuDebugScreens {
             }
 
             public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+                this.renderBackground(context);
                 super.render(context, mouseX, mouseY, delta);
                 int centerX = this.width / 2;
                 int labelX = centerX - 180;
@@ -1230,6 +1234,7 @@ final class NonModMenuDebugScreens {
             }
 
             public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+                this.renderBackground(context);
                 super.render(context, mouseX, mouseY, delta);
                 context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, this.height / 2 - 20, -1);
                 context.drawCenteredTextWithShadow(this.textRenderer, (Text)Text.translatable((String)"config.needsofnature.offspring_count_reset_body"), this.width / 2, this.height / 2 - 4, -4144960);
@@ -1320,6 +1325,7 @@ final class NonModMenuDebugScreens {
 
         public void render(DrawContext context, int mouseX, int mouseY, float delta) {
             this.updateApplyButton();
+            this.renderBackground(context);
             super.render(context, mouseX, mouseY, delta);
             context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
             this.drawGenderSpawnHeader(context);
@@ -1640,6 +1646,7 @@ final class NonModMenuDebugScreens {
             }
 
             public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+                this.renderBackground(context);
                 super.render(context, mouseX, mouseY, delta);
                 context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, this.height / 2 - 20, -1);
                 context.drawCenteredTextWithShadow(this.textRenderer, (Text)Text.translatable((String)"config.needsofnature.gender_spawn_reset_body"), this.width / 2, this.height / 2 - 4, -3355444);
@@ -1701,6 +1708,7 @@ final class NonModMenuDebugScreens {
         }
 
         public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+            this.renderBackground(context);
             super.render(context, mouseX, mouseY, delta);
             context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 12, -1);
             context.drawTextWithShadow(this.textRenderer, (Text)Text.translatable((String)"config.needsofnature.loaded_animations.load_order.summary"), 8, 24, -5197648);
@@ -2018,6 +2026,7 @@ final class NonModMenuDebugScreens {
         }
 
         public void render(DrawContext context, int mouseX, int mouseY, float delta) {
+            this.renderBackground(context);
             super.render(context, mouseX, mouseY, delta);
             context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 12, -1);
             context.drawTextWithShadow(this.textRenderer, (Text)Text.translatable((String)"config.needsofnature.loaded_animations_summary", (Object[])new Object[]{this.allRows.size(), this.filteredCount}), 8, 22, -5197648);
@@ -3343,6 +3352,7 @@ final class NonModMenuDebugScreens {
 
         public void render(DrawContext context, int mouseX, int mouseY, float delta) {
             this.updateResetButtons();
+            this.renderBackground(context);
             super.render(context, mouseX, mouseY, delta);
             context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
         }
