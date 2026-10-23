@@ -15,9 +15,12 @@
 		],
 		"fabric-datagen": [
 			"com.nonid.NeedsOfNatureDataGenerator"
-        ],
-        "client": [
-            "com.nonid.NeedsOfNatureClient"
+		],
+		"client": [
+			"com.nonid.NeedsOfNatureClient"
+		],
+		"modmenu": [
+			"com.nonid.integration.NonModMenuIntegration"
 		]
 	},
 	"mixins": [
@@ -28,9 +31,9 @@
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*",
-        "animationframework": "*"
+		"animationframework": "*"
 	},
 	"suggests": {
-        "trinkets": "*"
+		"trinkets": "*"
 	}
 }
