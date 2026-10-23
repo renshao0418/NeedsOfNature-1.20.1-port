@@ -166,6 +166,7 @@ extends Screen {
             this.statusButton.setMessage(NonIntifaceDependencyManager.librariesUsable() ? NonIntifaceBridge.statusText(this.config) : NonIntifaceDependencyManager.statusText());
         }
         this.updateConnectionButtons();
+        this.renderBackground(context);
         super.render(context, mouseX, mouseY, delta);
         context.drawCenteredTextWithShadow(this.textRenderer, this.title, this.width / 2, 20, 0xFFFFFF);
     }
