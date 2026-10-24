@@ -217,6 +217,53 @@ extends Screen {
             super.addEntry(entry);
         }
 
+        @Override
+        public boolean mouseClicked(double mouseX, double mouseY, int button) {
+            for (SettingsList.RowEntry entry : this.children()) {
+                for (ClickableWidget widget : entry.widgets) {
+                    if (widget.active && widget.isMouseOver(mouseX, mouseY) && widget.mouseClicked(mouseX, mouseY, button)) {
+                        return true;
+                    }
+                }
+            }
+            return super.mouseClicked(mouseX, mouseY, button);
+        }
+
+        @Override
+        public boolean mouseReleased(double mouseX, double mouseY, int button) {
+            boolean bl = false;
+            for (SettingsList.RowEntry entry : this.children()) {
+                for (ClickableWidget widget : entry.widgets) {
+                    bl |= widget.mouseReleased(mouseX, mouseY, button);
+                }
+            }
+            return bl | super.mouseReleased(mouseX, mouseY, button);
+        }
+
+        @Override
+        public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+            for (SettingsList.RowEntry entry : this.children()) {
+                for (ClickableWidget widget : entry.widgets) {
+                    if (widget.keyPressed(keyCode, scanCode, modifiers)) {
+                        return true;
+                    }
+                }
+            }
+            return super.keyPressed(keyCode, scanCode, modifiers);
+        }
+
+        @Override
+        public boolean charTyped(char chr, int modifiers) {
+            for (SettingsList.RowEntry entry : this.children()) {
+                for (ClickableWidget widget : entry.widgets) {
+                    if (widget.charTyped(chr, modifiers)) {
+                        return true;
+                    }
+                }
+            }
+            return super.charTyped(chr, modifiers);
+        }
+
         public int getRowWidth() {
             return 360;
         }
