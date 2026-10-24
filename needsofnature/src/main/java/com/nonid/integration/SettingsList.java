@@ -54,6 +54,15 @@ extends ElementListWidget<SettingsList.RowEntry> {
         return (this.width - this.getRowWidth()) / 2;
     }
 
+    @Override
+    public boolean mouseClicked(double mouseX, double mouseY, int button) {
+        boolean over = this.isMouseOver(mouseX, mouseY);
+        System.out.println("[NoN-UI] LIST click (" + (int)mouseX + "," + (int)mouseY + ") isMouseOver=" + over + " scroll=" + (int)this.getScrollAmount());
+        boolean bl = super.mouseClicked(mouseX, mouseY, button);
+        System.out.println("[NoN-UI] LIST handled=" + bl);
+        return bl;
+    }
+
     static final class RowEntry
     extends ElementListWidget.Entry<RowEntry> {
         private final TextRenderer textRenderer;
@@ -191,12 +200,19 @@ extends ElementListWidget<SettingsList.RowEntry> {
 
         @Override
         public boolean mouseClicked(double mouseX, double mouseY, int button) {
+            StringBuilder sb = new StringBuilder();
+            for (ClickableWidget widget : this.widgets) {
+                sb.append(widget.getMessage().getString()).append("@").append(widget.getX()).append(",").append(widget.getY()).append(" ").append(widget.getWidth()).append("x").append(widget.getHeight()).append(" active=").append(widget.active).append("; ");
+            }
+            boolean handled = false;
             for (Element element : this.children()) {
                 if (element.mouseClicked(mouseX, mouseY, button)) {
-                    return true;
+                    handled = true;
+                    break;
                 }
             }
-            return false;
+            System.out.println("[NoN-UI] ROW click (" + (int)mouseX + "," + (int)mouseY + ") widgets=[" + sb + "] handled=" + handled);
+            return handled;
         }
 
         @Override
