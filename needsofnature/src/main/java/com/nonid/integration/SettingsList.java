@@ -54,13 +54,83 @@ extends ElementListWidget<SettingsList.RowEntry> {
         return (this.width - this.getRowWidth()) / 2;
     }
 
+    private boolean dispatchToRowWidgets(double mouseX, double mouseY, int button, boolean logDump) {
+        StringBuilder dump = new StringBuilder();
+        boolean handled = false;
+        int ei = 0;
+        for (SettingsList.RowEntry entry : this.children()) {
+            for (ClickableWidget widget : entry.widgets) {
+                if (logDump) {
+                    dump.append('#').append(ei).append(' ').append(widget.getMessage().getString()).append('@').append(widget.getX()).append(',').append(widget.getY()).append(' ').append(widget.getWidth()).append('x').append(widget.getHeight()).append(" a=").append(widget.active).append("; ");
+                }
+                if (!handled && widget.active && widget.isMouseOver(mouseX, mouseY) && widget.mouseClicked(mouseX, mouseY, button)) {
+                    handled = true;
+                }
+            }
+            ei++;
+        }
+        if (logDump) {
+            System.out.println("[NoN-UI] DUMP click(" + (int)mouseX + "," + (int)mouseY + ") scroll=" + (int)this.getScrollAmount() + " " + dump + "manual=" + handled);
+        }
+        return handled;
+    }
+
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        boolean over = this.isMouseOver(mouseX, mouseY);
-        System.out.println("[NoN-UI] LIST click (" + (int)mouseX + "," + (int)mouseY + ") isMouseOver=" + over + " scroll=" + (int)this.getScrollAmount());
+        boolean manual = this.dispatchToRowWidgets(mouseX, mouseY, button, true);
+        if (manual) {
+            return true;
+        }
         boolean bl = super.mouseClicked(mouseX, mouseY, button);
-        System.out.println("[NoN-UI] LIST handled=" + bl);
+        System.out.println("[NoN-UI] LIST super handled=" + bl);
         return bl;
+    }
+
+    @Override
+    public boolean mouseReleased(double mouseX, double mouseY, int button) {
+        boolean bl = false;
+        for (SettingsList.RowEntry entry : this.children()) {
+            for (ClickableWidget widget : entry.widgets) {
+                bl |= widget.mouseReleased(mouseX, mouseY, button);
+            }
+        }
+        return bl | super.mouseReleased(mouseX, mouseY, button);
+    }
+
+    @Override
+    public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+        for (SettingsList.RowEntry entry : this.children()) {
+            for (ClickableWidget widget : entry.widgets) {
+                if (widget.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+                    return true;
+                }
+            }
+        }
+        return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+    }
+
+    @Override
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        for (SettingsList.RowEntry entry : this.children()) {
+            for (ClickableWidget widget : entry.widgets) {
+                if (widget.keyPressed(keyCode, scanCode, modifiers)) {
+                    return true;
+                }
+            }
+        }
+        return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    @Override
+    public boolean charTyped(char chr, int modifiers) {
+        for (SettingsList.RowEntry entry : this.children()) {
+            for (ClickableWidget widget : entry.widgets) {
+                if (widget.charTyped(chr, modifiers)) {
+                    return true;
+                }
+            }
+        }
+        return super.charTyped(chr, modifiers);
     }
 
     static final class RowEntry
