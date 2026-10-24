@@ -3192,18 +3192,6 @@ final class NonModMenuDebugScreens {
                     }
                 }
 
-                public boolean mouseClicked(double mouseX, double mouseY, int button) {
-                    LoadedListRow loadedListRow = this.row;
-                    if (loadedListRow instanceof LoadedPackHeaderRow) {
-                        LoadedPackHeaderRow headerRow = (LoadedPackHeaderRow)loadedListRow;
-                        if (button == 0 && this.onTogglePackExpanded != null && !this.enabledButton.isMouseOver(mouseX, mouseY)) {
-                            this.onTogglePackExpanded.accept(headerRow.packId());
-                            return true;
-                        }
-                    }
-                    return super.mouseClicked(mouseX, mouseY, button);
-                }
-
                 private void renderPackHeader(DrawContext context, int mouseX, int mouseY, float delta, int x, int y, int right, LoadedPackHeaderRow headerRow) {
                     this.enabledButton.setMessage((Text)Text.literal((String)(headerRow.disabled() ? "OFF" : "ON")));
                     this.enabledButton.active = this.editableSupplier.getAsBoolean();
@@ -3240,7 +3228,15 @@ final class NonModMenuDebugScreens {
                             return true;
                         }
                     }
-                    return false;
+                    LoadedListRow loadedListRow = this.row;
+                    if (loadedListRow instanceof LoadedPackHeaderRow) {
+                        LoadedPackHeaderRow headerRow = (LoadedPackHeaderRow)loadedListRow;
+                        if (button == 0 && this.onTogglePackExpanded != null && !this.enabledButton.isMouseOver(mouseX, mouseY)) {
+                            this.onTogglePackExpanded.accept(headerRow.packId());
+                            return true;
+                        }
+                    }
+                    return super.mouseClicked(mouseX, mouseY, button);
                 }
 
                 @Override
