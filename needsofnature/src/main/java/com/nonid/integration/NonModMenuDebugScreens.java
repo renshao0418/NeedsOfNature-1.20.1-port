@@ -525,6 +525,54 @@ final class NonModMenuDebugScreens {
                     return List.copyOf(this.widgets);
                 }
 
+                @Override
+                public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                    for (Element element : this.children()) {
+                        if (element.mouseClicked(mouseX, mouseY, button)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean mouseReleased(double mouseX, double mouseY, int button) {
+                    boolean bl = false;
+                    for (Element element : this.children()) {
+                        bl |= element.mouseReleased(mouseX, mouseY, button);
+                    }
+                    return bl;
+                }
+
+                @Override
+                public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+                    for (Element element : this.children()) {
+                        if (element.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+                    for (Element element : this.children()) {
+                        if (element.keyPressed(keyCode, scanCode, modifiers)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean charTyped(char chr, int modifiers) {
+                    for (Element element : this.children()) {
+                        if (element.charTyped(chr, modifiers)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
                 public void forEachChild(Consumer<ClickableWidget> consumer) {
                     this.widgets.forEach(consumer);
                 }
@@ -1050,6 +1098,54 @@ final class NonModMenuDebugScreens {
                     return List.copyOf(this.widgets);
                 }
 
+                @Override
+                public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                    for (Element element : this.children()) {
+                        if (element.mouseClicked(mouseX, mouseY, button)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean mouseReleased(double mouseX, double mouseY, int button) {
+                    boolean bl = false;
+                    for (Element element : this.children()) {
+                        bl |= element.mouseReleased(mouseX, mouseY, button);
+                    }
+                    return bl;
+                }
+
+                @Override
+                public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+                    for (Element element : this.children()) {
+                        if (element.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+                    for (Element element : this.children()) {
+                        if (element.keyPressed(keyCode, scanCode, modifiers)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean charTyped(char chr, int modifiers) {
+                    for (Element element : this.children()) {
+                        if (element.charTyped(chr, modifiers)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
                 public void forEachChild(Consumer<ClickableWidget> consumer) {
                     this.widgets.forEach(consumer);
                 }
@@ -1889,6 +1985,54 @@ final class NonModMenuDebugScreens {
                     return List.copyOf(this.widgets);
                 }
 
+                @Override
+                public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                    for (Element element : this.children()) {
+                        if (element.mouseClicked(mouseX, mouseY, button)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean mouseReleased(double mouseX, double mouseY, int button) {
+                    boolean bl = false;
+                    for (Element element : this.children()) {
+                        bl |= element.mouseReleased(mouseX, mouseY, button);
+                    }
+                    return bl;
+                }
+
+                @Override
+                public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+                    for (Element element : this.children()) {
+                        if (element.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+                    for (Element element : this.children()) {
+                        if (element.keyPressed(keyCode, scanCode, modifiers)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean charTyped(char chr, int modifiers) {
+                    for (Element element : this.children()) {
+                        if (element.charTyped(chr, modifiers)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
                 public void forEachChild(Consumer<ClickableWidget> consumer) {
                     this.widgets.forEach(consumer);
                 }
@@ -3089,6 +3233,54 @@ final class NonModMenuDebugScreens {
                     return List.copyOf(this.widgets);
                 }
 
+                @Override
+                public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                    for (Element element : this.children()) {
+                        if (element.mouseClicked(mouseX, mouseY, button)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean mouseReleased(double mouseX, double mouseY, int button) {
+                    boolean bl = false;
+                    for (Element element : this.children()) {
+                        bl |= element.mouseReleased(mouseX, mouseY, button);
+                    }
+                    return bl;
+                }
+
+                @Override
+                public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+                    for (Element element : this.children()) {
+                        if (element.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+                    for (Element element : this.children()) {
+                        if (element.keyPressed(keyCode, scanCode, modifiers)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
+
+                @Override
+                public boolean charTyped(char chr, int modifiers) {
+                    for (Element element : this.children()) {
+                        if (element.charTyped(chr, modifiers)) {
+                            return true;
+                        }
+                    }
+                    return false;
+                }
                 public void forEachChild(Consumer<ClickableWidget> consumer) {
                     this.widgets.forEach(consumer);
                 }
