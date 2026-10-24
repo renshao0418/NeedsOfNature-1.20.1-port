@@ -399,7 +399,66 @@ final class NonModMenuDebugScreens {
                 this.centerListVertically = false;
             }
 
-            private void addEntryRow(GainEntry entry) {
+            
+            @Override
+            public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                for (GainEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.active && widget.isMouseOver(mouseX, mouseY) && widget.mouseClicked(mouseX, mouseY, button)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.mouseClicked(mouseX, mouseY, button);
+            }
+
+            @Override
+            public boolean mouseReleased(double mouseX, double mouseY, int button) {
+                boolean bl = false;
+                for (GainEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        bl |= widget.mouseReleased(mouseX, mouseY, button);
+                    }
+                }
+                return bl | super.mouseReleased(mouseX, mouseY, button);
+            }
+
+            @Override
+            public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+                for (GainEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+            }
+
+            @Override
+            public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+                for (GainEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.keyPressed(keyCode, scanCode, modifiers)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.keyPressed(keyCode, scanCode, modifiers);
+            }
+
+            @Override
+            public boolean charTyped(char chr, int modifiers) {
+                for (GainEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.charTyped(chr, modifiers)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.charTyped(chr, modifiers);
+            }
+private void addEntryRow(GainEntry entry) {
                 super.addEntry(entry);
             }
 
@@ -879,7 +938,66 @@ final class NonModMenuDebugScreens {
                 this.centerListVertically = false;
             }
 
-            private void addEntryRow(OffspringEntry entry) {
+            
+            @Override
+            public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                for (OffspringEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.active && widget.isMouseOver(mouseX, mouseY) && widget.mouseClicked(mouseX, mouseY, button)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.mouseClicked(mouseX, mouseY, button);
+            }
+
+            @Override
+            public boolean mouseReleased(double mouseX, double mouseY, int button) {
+                boolean bl = false;
+                for (OffspringEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        bl |= widget.mouseReleased(mouseX, mouseY, button);
+                    }
+                }
+                return bl | super.mouseReleased(mouseX, mouseY, button);
+            }
+
+            @Override
+            public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+                for (OffspringEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+            }
+
+            @Override
+            public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+                for (OffspringEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.keyPressed(keyCode, scanCode, modifiers)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.keyPressed(keyCode, scanCode, modifiers);
+            }
+
+            @Override
+            public boolean charTyped(char chr, int modifiers) {
+                for (OffspringEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.charTyped(chr, modifiers)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.charTyped(chr, modifiers);
+            }
+private void addEntryRow(OffspringEntry entry) {
                 super.addEntry(entry);
             }
 
@@ -1585,7 +1703,66 @@ final class NonModMenuDebugScreens {
                 this.centerListVertically = false;
             }
 
-            private void addEntryRow(GenderEntry entry) {
+            
+            @Override
+            public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                for (GenderEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.active && widget.isMouseOver(mouseX, mouseY) && widget.mouseClicked(mouseX, mouseY, button)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.mouseClicked(mouseX, mouseY, button);
+            }
+
+            @Override
+            public boolean mouseReleased(double mouseX, double mouseY, int button) {
+                boolean bl = false;
+                for (GenderEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        bl |= widget.mouseReleased(mouseX, mouseY, button);
+                    }
+                }
+                return bl | super.mouseReleased(mouseX, mouseY, button);
+            }
+
+            @Override
+            public boolean mouseDragged(double mouseX, double mouseY, int button, double dragX, double dragY) {
+                for (GenderEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.mouseDragged(mouseX, mouseY, button, dragX, dragY)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.mouseDragged(mouseX, mouseY, button, dragX, dragY);
+            }
+
+            @Override
+            public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+                for (GenderEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.keyPressed(keyCode, scanCode, modifiers)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.keyPressed(keyCode, scanCode, modifiers);
+            }
+
+            @Override
+            public boolean charTyped(char chr, int modifiers) {
+                for (GenderEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.charTyped(chr, modifiers)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.charTyped(chr, modifiers);
+            }
+private void addEntryRow(GenderEntry entry) {
                 super.addEntry(entry);
             }
 
@@ -1905,6 +2082,53 @@ final class NonModMenuDebugScreens {
                 this.onMoveDown = onMoveDown;
                 this.editable = editable;
                 this.centerListVertically = false;
+            }
+
+            @Override
+            public boolean mouseClicked(double mouseX, double mouseY, int button) {
+                for (PackOrderList.RowEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.active && widget.isMouseOver(mouseX, mouseY) && widget.mouseClicked(mouseX, mouseY, button)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.mouseClicked(mouseX, mouseY, button);
+            }
+
+            @Override
+            public boolean mouseReleased(double mouseX, double mouseY, int button) {
+                boolean bl = false;
+                for (PackOrderList.RowEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        bl |= widget.mouseReleased(mouseX, mouseY, button);
+                    }
+                }
+                return bl | super.mouseReleased(mouseX, mouseY, button);
+            }
+
+            @Override
+            public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+                for (PackOrderList.RowEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.keyPressed(keyCode, scanCode, modifiers)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.keyPressed(keyCode, scanCode, modifiers);
+            }
+
+            @Override
+            public boolean charTyped(char chr, int modifiers) {
+                for (PackOrderList.RowEntry entry : this.children()) {
+                    for (ClickableWidget widget : entry.widgets) {
+                        if (widget.charTyped(chr, modifiers)) {
+                            return true;
+                        }
+                    }
+                }
+                return super.charTyped(chr, modifiers);
             }
 
             private void setRows(List<PackOrderRow> rows) {
